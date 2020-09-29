@@ -1,7 +1,10 @@
 package ercanduman.springbootdemo.data.dao
 
+import ercanduman.springbootdemo.Constants
 import ercanduman.springbootdemo.data.entity.Person
+import org.springframework.stereotype.Repository
 
+@Repository(Constants.QUALIFIER_NAME)
 class FakePersonDaoImpl : PersonDao {
     private val personListDatabase = mutableListOf<Person>(
             Person(1, "User name 1", "user1@mail.com"),
