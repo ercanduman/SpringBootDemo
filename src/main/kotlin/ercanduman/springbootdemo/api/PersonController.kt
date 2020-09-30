@@ -12,8 +12,8 @@ class PersonController(@Autowired private val service: PersonService) {
     @PostMapping
     fun insert(@RequestBody person: Person) = service.insert(person)
 
-    @PutMapping
-    fun update(person: Person) = service.update(person)
+    @PutMapping(Constants.URL_PERSON_BY_ID)
+    fun update(@RequestBody person: Person) = service.update(person)
 
     @DeleteMapping(Constants.URL_PERSON_BY_ID)
     fun delete(@PathVariable("id") id: Int) = service.delete(id)

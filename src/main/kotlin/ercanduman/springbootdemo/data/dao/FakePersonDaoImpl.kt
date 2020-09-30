@@ -15,8 +15,10 @@ class FakePersonDaoImpl : PersonDao {
     }
 
     override fun insert(person: Person) = personListDatabase.put(person.id, person)
-    override fun update(person: Person) = personListDatabase.replace(person.id, person)
     override fun delete(id: Int) = personListDatabase.remove(id)
     override fun personList(): List<Person> = personListDatabase.values.toList()
     override fun getPerson(id: Int): Person? = personListDatabase[id]
+    override fun update(person: Person) {
+        personListDatabase.replace(person.id, person)
+    }
 }
