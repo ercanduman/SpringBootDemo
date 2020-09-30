@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service
 
 @Service
 class PersonService(
-        @Autowired
-        @Qualifier(Constants.QUALIFIER_NAME)
+        @Autowired // Thanks to @Autowired annotation, Spring will instantiate and inject this object via dependency injection. 
+        @Qualifier(Constants.QUALIFIER_NAME) // Get data based on qualifier name
         private val dao: PersonDao
 ) {
     fun insert(person: Person) = dao.insert(person)
