@@ -15,12 +15,12 @@ class PersonController(@Autowired private val service: PersonService) {
     @PutMapping
     fun update(person: Person) = service.update(person)
 
-    @DeleteMapping
-    fun delete(id: Int) = service.delete(id)
+    @DeleteMapping(Constants.URL_PERSON_BY_ID)
+    fun delete(@PathVariable("id") id: Int) = service.delete(id)
 
     @GetMapping
     fun personList(): List<Person> = service.personList()
 
     @GetMapping(Constants.URL_PERSON_BY_ID)
-    fun getPerson(@PathVariable("id") id: Int): Person = service.getPerson(id)
+    fun getPerson(@PathVariable("id") id: Int) = service.getPerson(id)
 }
