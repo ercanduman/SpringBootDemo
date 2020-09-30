@@ -16,5 +16,5 @@ class PersonService(
     fun insert(person: Person) = dao.insert(person)
     fun update(person: Person) = dao.update(person)
     fun delete(id: Int) = dao.delete(id)
-    fun people(): List<Person> = dao.people()
+    fun personList(): List<Person> = dao.personList()
 }
