@@ -17,4 +17,5 @@ class PersonService(
     fun update(person: Person) = dao.update(person)
     fun delete(id: Int) = dao.delete(id)
     fun personList(): List<Person> = dao.personList()
+    fun getPerson(id: Int): Person = dao.getPerson(id)
 }

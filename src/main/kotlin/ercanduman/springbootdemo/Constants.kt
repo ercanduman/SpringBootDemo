@@ -15,5 +15,5 @@ object Constants {
      * URLs
      */
     const val URL_PERSON_LIST = "/api/v1/person"
-    const val URL_PERSON_BY_ID = "/api/v1/person/{id}"
+    const val URL_PERSON_BY_ID = "/{id}"
 }

@@ -20,4 +20,7 @@ class PersonController(@Autowired private val service: PersonService) {
 
     @GetMapping
     fun personList(): List<Person> = service.personList()
+
+    @GetMapping(Constants.URL_PERSON_BY_ID)
+    fun getPerson(@PathVariable("id") id: Int): Person = service.getPerson(id)
 }
