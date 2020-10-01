@@ -15,7 +15,7 @@ class FakePersonDaoImpl : PersonDao {
     }
 
     override fun personList(): List<Person> = personListDatabase.values.toList()
-    override fun getPerson(id: Int): Person? = personListDatabase[id]
+    override fun getPerson(id: Int) = personListDatabase[id] ?: Constants.RESULT_CODE_FAILURE
     override fun insert(person: Person): Int {
         personListDatabase += (person.id to person) // alternative to personListDatabase[person.id] = person
         val result = personListDatabase[person.id]

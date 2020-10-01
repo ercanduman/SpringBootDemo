@@ -10,7 +10,7 @@ class PostgreSqlPersonDaoImpl : PersonDao {
         return listOf(Person(id = 33, name = "Data from postgres"))
     }
 
-    override fun getPerson(id: Int): Person? {
+    override fun getPerson(id: Int): Any {
         TODO("Not yet implemented")
     }
 
