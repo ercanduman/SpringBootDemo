@@ -4,7 +4,7 @@ import ercanduman.springbootdemo.Constants
 import ercanduman.springbootdemo.data.entity.Person
 import org.springframework.stereotype.Repository
 
-@Repository(Constants.QUALIFIER_NAME)
+@Repository(Constants.QUALIFIER_FAKE_DATA)
 class FakePersonDaoImpl : PersonDao {
     private val personListDatabase = mutableMapOf<Int, Person>()
 
@@ -14,11 +14,20 @@ class FakePersonDaoImpl : PersonDao {
         }
     }
 
-    override fun insert(person: Person) = personListDatabase.put(person.id, person)
-    override fun delete(id: Int) = personListDatabase.remove(id)
     override fun personList(): List<Person> = personListDatabase.values.toList()
     override fun getPerson(id: Int): Person? = personListDatabase[id]
-    override fun update(person: Person) {
-        personListDatabase.replace(person.id, person)
+    override fun insert(person: Person): Int {
+        val result = personListDatabase.put(person.id, person)
+        return if (result != null) Constants.RESULT_CODE_SUCCESS else Constants.RESULT_CODE_FAILURE
+    }
+
+    override fun delete(id: Int): Int {
+        val result = personListDatabase.remove(id)
+        return if (result != null) Constants.RESULT_CODE_SUCCESS else Constants.RESULT_CODE_FAILURE
+    }
+
+    override fun update(person: Person): Int {
+        val result = personListDatabase.replace(person.id, person)
+        return if (result != null) Constants.RESULT_CODE_SUCCESS else Constants.RESULT_CODE_FAILURE
     }
 }

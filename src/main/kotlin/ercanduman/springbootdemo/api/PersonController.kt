@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping(Constants.URL_PERSON_LIST)
 class PersonController(@Autowired private val service: PersonService) {
+    @GetMapping
+    fun personList(): List<Person> = service.personList()
+
     @PostMapping
     fun insert(@RequestBody person: Person) = service.insert(person)
 
@@ -17,9 +20,6 @@ class PersonController(@Autowired private val service: PersonService) {
 
     @DeleteMapping(Constants.URL_PERSON_BY_ID)
     fun delete(@PathVariable("id") id: Int) = service.delete(id)
-
-    @GetMapping
-    fun personList(): List<Person> = service.personList()
 
     @GetMapping(Constants.URL_PERSON_BY_ID)
     fun getPerson(@PathVariable("id") id: Int) = service.getPerson(id)
