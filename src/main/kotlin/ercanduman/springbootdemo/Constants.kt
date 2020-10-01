@@ -12,7 +12,7 @@ object Constants {
      *
      * Based on database implementation, postgreData or oracleData, mongodbData can be used as well.
      */
-    const val QUALIFIER_NAME = QUALIFIER_POSTGRESQL_DATA
+    const val QUALIFIER_NAME = QUALIFIER_FAKE_DATA
 
     /**
      * URLs
